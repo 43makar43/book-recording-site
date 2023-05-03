@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Клиент{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/client/client.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<div class="container-fluid">
+       
+    <div class="row d-flex justify-content-left">
+          <div class="col-2 p-1 mt-2 m-5 allClient" >
+              {% for el in objectsClient %}
+                  <div>
+                      <button onclick="getInfoClient({{el.id}})" class="btn btn-success m-2">{{el.full_name}}</button>
+                  </div>
+              {% endfor %}
+          </div>
+        
+        <div class="col-1">
+            
+        </div>
+
+        <div class="col-3 p-1 mt-2 conteiner-client listInfo"  style="max-width: 500px">
+            <div class="row d-flex justify-content-center g-3 align-items-center">
+
+              <form onsubmit="return false;" id="formUpdateUser" class="mt-4 mb-2" style="max-width: 300px">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">ФИО</label>
+                  <input type="text" class="form-control" name="full_name" id="full_name_client">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Номер телефона</label>
+                  <input type="text" class="form-control" name="number" id="phone_number_client">
+                </div>
+                
+                <h6 id="validateUpdateInfo" class="text-light mb-2 mt-2" style="display: none"></h6>
+
+                <div id="buttonUpdateUser"> 
+
+                </div>
+
+              </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

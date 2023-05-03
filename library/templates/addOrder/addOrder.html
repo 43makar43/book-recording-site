@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавление заказа{% endblock %}
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/addOrder/addOrder.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<div class="features">
+    <span class="headline">Форма добавления заказа</span>
+    <form method="post">
+        {% csrf_token %}
+        <h5>ФИО клиента:</h5>
+        {{ form.full_name_client }}
+        <h5>Дата взятия книги:</h5>
+        {{ form.date_of_taking }}
+        <h5>Дата возврата книги:</h5>
+        {{ form.return_date }}
+        <h5>ФИО библиотекаря:</h5>
+        {{ form.full_name_librarian }}
+        <h5>Взятые книги:</h5>
+        {{ form.book_models }}<br>
+        <button class="btn btn-success mt-2" type="submit">Добавить заказа</button>
+    </form>
+    
+    
+</div>
+{% endblock %}

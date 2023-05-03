@@ -1,0 +1,16 @@
+.allOrder{
+    background-color: #6ca5a5;
+    border-radius: 3% 10% 4%;
+    color: #181818;
+}
+
+.listInfo{
+    background-color: #6ca5a5;
+    border-radius: 3% 10% 4%;
+    color: #fff;
+    width: 60%;
+}
+
+.dropdown_custom_item{
+    font-weight: 500;
+}

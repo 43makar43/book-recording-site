@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Заказы{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/order/order.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<div class="container-fluid">
+       
+    <div class="row d-flex justify-content-left">
+            <div class="col-2 p-1 mt-2 m-5 allOrder">
+              {% for el in objectsOrder %}
+                    <button onclick="getInfoOrder({{el.id}})" class="btn btn-success m-2">{{el.full_name_client.full_name}}</button>
+              {% endfor %}
+            </div>
+        
+        <div class="col-1">
+            
+        </div>
+
+        <div class="col-3 p-1 mt-2 conteiner-client listInfo"  style="max-width: 500px">
+            <div class="row d-flex justify-content-center g-3 align-items-center">
+
+              <form onsubmit="return false;" id="formUpdateUser" class="mt-4 mb-2" style="max-width: 300px">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">ФИО клиента</label>
+                  <input type="text" class="form-control" name="full_name_client" id="full_name_client">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Дата взятия книги</label>
+                    <input type="text" class="form-control" name="date_taking" id="date_of_taking">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Дата возврата книги</label>
+                    <input type="text" class="form-control" name="return_date" id="return_date">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">ФИО библиотекаря</label>
+                    <input type="text" class="form-control" name="full_name_librarian" id="full_name_librarian">
+                </div>
+                <div class="mb-3">
+                    <p class="form-label">Взятые книги</p>
+                    <a class="btn btn-light dropdown-toggle" style="width: 100%;"  role="button" data-bs-toggle="dropdown" aria-expanded="false">Список книг</a>
+                    
+
+                    <div class="dropdown">
+                        <ul class="dropdown-menu" id="books_list" style="width: 100%; max-height: 350px; overflow-y: scroll;">
+                          
+                        </ul>
+                    </div>
+                </div>
+
+              </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавление клиента{% endblock %}
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/addClient/addClient.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<div class="features">
+    <span class="headline">Форма добавления клиента</span>
+    <form  method="post">
+        {% csrf_token %}
+        {{ form.full_name }}<br>
+        {{ form.phone_number }}<br>
+        <button class="btn btn-success" type="submit">Добавить клиента</button>
+    </form>
+    
+    
+</div>
+{% endblock %}
